@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GildedRose\Item\UpdateQuality\Updater;
+namespace GildedRose\Item\Quality\Updater;
 
 use GildedRose\Item\ItemInfo;
 

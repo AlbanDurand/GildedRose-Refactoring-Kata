@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace GildedRose\Item\UpdateQuality\Updater\Factory;
+namespace GildedRose\Item\Quality\Updater\Factory;
 
 use GildedRose\Item\ItemInfo;
-use GildedRose\Item\UpdateQuality\Updater\Updater;
-use GildedRose\Item\UpdateQuality\Updater\UpdaterInterface;
+use GildedRose\Item\Quality\Updater\Updater;
+use GildedRose\Item\Quality\Updater\UpdaterInterface;
 
 class Factory implements FactoryInterface
 {

@@ -6,7 +6,7 @@ namespace Tests;
 
 use GildedRose\GildedRose;
 use GildedRose\Item;
-use GildedRose\Item\UpdateQuality\Updater\Factory\Factory as UpdaterFactory;
+use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
 use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase

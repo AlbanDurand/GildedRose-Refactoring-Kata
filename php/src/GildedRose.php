@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace GildedRose;
 
 use GildedRose\Item\ItemInfo;
-use GildedRose\Item\UpdateQuality\Updater\Factory\FactoryInterface as UpdaterFactoryInterface;
+use GildedRose\Item\Quality\Updater\Factory\FactoryInterface as UpdaterFactoryInterface;
 
 final class GildedRose
 {

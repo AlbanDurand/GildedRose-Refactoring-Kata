@@ -8,7 +8,7 @@ use GildedRose\GildedRose;
 use GildedRose\Item;
 use PHPUnit\Framework\TestCase;
 use ApprovalTests\Approvals;
-use GildedRose\Item\UpdateQuality\Updater\Factory\Factory as UpdaterFactory;
+use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
 
 /**
  * This unit test uses [Approvals](https://github.com/approvals/ApprovalTests.php).

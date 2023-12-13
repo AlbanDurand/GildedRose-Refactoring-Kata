@@ -21,12 +21,12 @@ class Updater implements UpdaterInterface
             if ($info->getQuality() < 50) {
                 $info->setQuality($info->getQuality() + 1);
                 if ($info->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
-                    if ($info->getRemainingDaysForSelling() < 11) {
+                    if ($info->getDaysBeforeExpiration() < 11) {
                         if ($info->getQuality() < 50) {
                             $info->setQuality($info->getQuality() + 1);
                         }
                     }
-                    if ($info->getRemainingDaysForSelling() < 6) {
+                    if ($info->getDaysBeforeExpiration() < 6) {
                         if ($info->getQuality() < 50) {
                             $info->setQuality($info->getQuality() + 1);
                         }
@@ -36,10 +36,10 @@ class Updater implements UpdaterInterface
         }
 
         if ($info->getName() != 'Sulfuras, Hand of Ragnaros') {
-            $info->setRemainingDaysForSelling($info->getRemainingDaysForSelling() - 1);
+            $info->setRemainingDaysForSelling($info->getDaysBeforeExpiration() - 1);
         }
 
-        if ($info->getRemainingDaysForSelling() < 0) {
+        if ($info->getDaysBeforeExpiration() < 0) {
             if ($info->getName() != 'Aged Brie') {
                 if ($info->getName() != 'Backstage passes to a TAFKAL80ETC concert') {
                     if ($info->getQuality() > 0) {

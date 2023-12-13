@@ -14,6 +14,6 @@ class MoreThanGivenDaysForSellingSpecification implements SpecificationInterface
 
     public function isSatisfiedBy(ItemInfo $info): bool
     {
-        return $info->getRemainingDaysForSelling() > $this->days;
+        return $info->getDaysBeforeExpiration() > $this->days;
     }
 }

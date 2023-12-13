@@ -28,7 +28,7 @@ class ItemInfo
         $this->item->quality = $quality;
     }
 
-    public function getRemainingDaysForSelling(): int
+    public function getDaysBeforeExpiration(): int
     {
         return $this->item->sellIn;
     }

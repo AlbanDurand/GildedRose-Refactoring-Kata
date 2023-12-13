@@ -21,7 +21,7 @@ class ItemInfoTest extends TestCase
         );
 
         self::assertEquals('Sonic screwdriver', $info->getName());
-        self::assertEquals(10, $info->getRemainingDaysForSelling());
+        self::assertEquals(10, $info->getDaysBeforeExpiration());
         self::assertEquals(2, $info->getQuality());
     }
 
@@ -52,6 +52,6 @@ class ItemInfoTest extends TestCase
 
         $info->setRemainingDaysForSelling(9);
 
-        self::assertEquals(9, $info->getRemainingDaysForSelling());
+        self::assertEquals(9, $info->getDaysBeforeExpiration());
     }
 }

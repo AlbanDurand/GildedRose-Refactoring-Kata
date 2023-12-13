@@ -13,7 +13,8 @@ class ProgrammaticUpdater implements UpdaterInterface
     public function __construct(
         private ProviderInterface $calculator,
         private ?CorrectorInterface $corrector = null
-    ) {}
+    ) {
+    }
 
     public function updateItemQuality(ItemInfo $info): void
     {

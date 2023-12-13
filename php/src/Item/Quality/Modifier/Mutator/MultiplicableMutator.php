@@ -6,8 +6,9 @@ namespace GildedRose\Item\Quality\Modifier\Mutator;
 
 class MultiplicableMutator implements MutatorInterface
 {
-    public function __construct(private int $multiplier)
-    {
+    public function __construct(
+        private int $multiplier
+    ) {
     }
 
     public function getMutatedQualityModifier(int $modifier): int

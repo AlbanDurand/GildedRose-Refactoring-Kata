@@ -14,8 +14,9 @@ use GildedRose\Item;
  */
 class ItemInfo
 {
-    public function __construct(private Item $item)
-    {
+    public function __construct(
+        private Item $item
+    ) {
     }
 
     public function getQuality(): int

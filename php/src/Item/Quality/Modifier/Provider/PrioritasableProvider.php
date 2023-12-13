@@ -17,7 +17,8 @@ class PrioritasableProvider implements ProviderInterface
         private SpecificationInterface $specification,
         private ProviderInterface $currentProvider,
         private ProviderInterface $nextProvider
-    ) {}
+    ) {
+    }
 
     public function provideQualityModifierBasedOnItemInfo(ItemInfo $info): int
     {

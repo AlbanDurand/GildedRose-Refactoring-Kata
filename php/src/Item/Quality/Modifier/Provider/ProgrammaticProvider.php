@@ -10,7 +10,8 @@ class ProgrammaticProvider implements ProviderInterface
 {
     public function __construct(
         private ProviderInterface $provider
-    ) {}
+    ) {
+    }
 
     public function provideQualityModifierBasedOnItemInfo(ItemInfo $info): int
     {

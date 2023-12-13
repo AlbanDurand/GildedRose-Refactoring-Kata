@@ -14,7 +14,8 @@ class ConditionallyMutableProvider implements ProviderInterface
         private SpecificationInterface $specification,
         private MutatorInterface $mutator,
         private ProviderInterface $provider,
-    ) {}
+    ) {
+    }
 
     public function provideQualityModifierBasedOnItemInfo(ItemInfo $info): int
     {

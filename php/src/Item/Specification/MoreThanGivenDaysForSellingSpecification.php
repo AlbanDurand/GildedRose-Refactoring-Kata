@@ -8,8 +8,9 @@ use GildedRose\Item\ItemInfo;
 
 class MoreThanGivenDaysForSellingSpecification implements SpecificationInterface
 {
-    public function __construct(private int $days)
-    {
+    public function __construct(
+        private int $days
+    ) {
     }
 
     public function isSatisfiedBy(ItemInfo $info): bool

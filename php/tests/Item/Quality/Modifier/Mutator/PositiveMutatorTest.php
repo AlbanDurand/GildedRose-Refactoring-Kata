@@ -29,7 +29,7 @@ class PositiveMutatorTest extends TestCase
         return [
             [4, 4],
             [0, 0],
-            [-5, 5]
+            [-5, 5],
         ];
     }
 }

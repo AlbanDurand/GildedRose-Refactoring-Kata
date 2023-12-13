@@ -29,7 +29,7 @@ class MultiplicableMutatorTest extends TestCase
         return [
             [-4, -20],
             [0, 0],
-            [3, 15]
+            [3, 15],
         ];
     }
 }

@@ -6,11 +6,11 @@ namespace Tests\Item\Quality\Modifier\Provider;
 
 use GildedRose\Item;
 use GildedRose\Item\ItemInfo;
+use GildedRose\Item\Quality\Modifier\Mutator\MultiplicableMutator;
 use GildedRose\Item\Quality\Modifier\Provider\ConditionallyMutableProvider;
 use GildedRose\Item\Quality\Modifier\Provider\FixedProvider;
-use GildedRose\Item\Quality\Modifier\Mutator\MultiplicableMutator;
-use GildedRose\Item\Specification\NonExpiredSpecification;
 use GildedRose\Item\Specification\ExpiredSpecification;
+use GildedRose\Item\Specification\NonExpiredSpecification;
 use PHPUnit\Framework\TestCase;
 
 class ConditionallyMutableCalculcatorTest extends TestCase

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use ApprovalTests\Approvals;
 use GildedRose\GildedRose;
 use GildedRose\Item;
-use PHPUnit\Framework\TestCase;
-use ApprovalTests\Approvals;
 use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
 use GildedRose\Item\Specification\SellableSpecification;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This unit test uses [Approvals](https://github.com/approvals/ApprovalTests.php).
@@ -22,8 +22,7 @@ use GildedRose\Item\Specification\SellableSpecification;
  */
 class ApprovalTest extends TestCase
 {
-
-	public function testFoo(): void
+    public function testFoo(): void
     {
         $items = [new Item('foo', 0, 0)];
         $app = new GildedRose(
@@ -33,18 +32,18 @@ class ApprovalTest extends TestCase
         );
         $app->updateQuality();
 
-		Approvals::verifyList($items);
-	}
+        Approvals::verifyList($items);
+    }
 
     public function testThirtyDays(): void
     {
         ob_start();
 
-        $argv = ["", "30"];
-        include(__DIR__.'/../fixtures/texttest_fixture.php');
+        $argv = ['', '30'];
+        include(__DIR__ . '/../fixtures/texttest_fixture.php');
 
         $output = ob_get_clean();
 
-        Approvals::approveString($output);
+        Approvals::verifyString($output);
     }
 }

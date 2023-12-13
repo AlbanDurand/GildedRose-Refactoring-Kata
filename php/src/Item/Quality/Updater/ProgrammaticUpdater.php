@@ -21,7 +21,7 @@ class ProgrammaticUpdater implements UpdaterInterface
         $nextQuality = $this->getCorrectedQuality($nextQuality);
 
         $info->setQuality($nextQuality);
-        $info->setRemainingDaysForSelling($info->getDaysBeforeExpiration() - 1);
+        $info->setDaysBeforeExpiration($info->getDaysBeforeExpiration() - 1);
     }
 
     private function getQualityModifier(ItemInfo $info): int

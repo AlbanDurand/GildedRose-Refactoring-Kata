@@ -33,7 +33,7 @@ class ItemInfo
         return $this->item->sellIn;
     }
 
-    public function setRemainingDaysForSelling(int $remainingDays): void
+    public function setDaysBeforeExpiration(int $remainingDays): void
     {
         $this->item->sellIn = $remainingDays;
     }

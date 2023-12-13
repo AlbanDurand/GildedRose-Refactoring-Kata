@@ -50,7 +50,7 @@ class ItemInfoTest extends TestCase
             )
         );
 
-        $info->setRemainingDaysForSelling(9);
+        $info->setDaysBeforeExpiration(9);
 
         self::assertEquals(9, $info->getDaysBeforeExpiration());
     }

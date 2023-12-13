@@ -36,7 +36,7 @@ class Updater implements UpdaterInterface
         }
 
         if ($info->getName() != 'Sulfuras, Hand of Ragnaros') {
-            $info->setRemainingDaysForSelling($info->getDaysBeforeExpiration() - 1);
+            $info->setDaysBeforeExpiration($info->getDaysBeforeExpiration() - 1);
         }
 
         if ($info->getDaysBeforeExpiration() < 0) {

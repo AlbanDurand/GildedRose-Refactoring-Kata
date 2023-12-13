@@ -25,7 +25,7 @@ class ItemInfoTest extends TestCase
         self::assertEquals(2, $info->getQuality());
     }
 
-    public function testUpdatingQualitySucceeds(): void
+    public function testSettingQualitySucceeds(): void
     {
         $info = new ItemInfo(
             new Item(
@@ -35,8 +35,23 @@ class ItemInfoTest extends TestCase
             )
         );
 
-        $info->updateQuality(3);
+        $info->setQuality(3);
 
         self::assertEquals(3, $info->getQuality());
+    }
+
+    public function testSettingRemainingDaysForSellingSucceeds(): void
+    {
+        $info = new ItemInfo(
+            new Item(
+                'Sonic screwdriver',
+                10,
+                2
+            )
+        );
+
+        $info->setRemainingDaysForSelling(9);
+
+        self::assertEquals(9, $info->getRemainingDaysForSelling());
     }
 }

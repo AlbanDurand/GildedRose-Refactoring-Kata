@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace GildedRose\Item\UpdateQuality\Updater;
 
-use GildedRose\Item;
+use GildedRose\Item\ItemInfo;
 
 interface UpdaterInterface
 {
-    public function updateItemQuality(Item $item): void;
+    public function updateItemQuality(ItemInfo $info): void;
 }

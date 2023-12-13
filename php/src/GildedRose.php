@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
+use GildedRose\Item\ItemInfo;
 use GildedRose\Item\UpdateQuality\Updater\Factory\FactoryInterface as UpdaterFactoryInterface;
 
 final class GildedRose
@@ -20,8 +21,10 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            $updater = $this->updaterFactory->createUpdater($item);
-            $updater->updateItemQuality($item);
+            $info = new ItemInfo($item);
+
+            $updater = $this->updaterFactory->createUpdater($info);
+            $updater->updateItemQuality($info);
         }
     }
 }

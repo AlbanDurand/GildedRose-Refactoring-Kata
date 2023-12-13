@@ -23,7 +23,7 @@ class ItemInfo
         return $this->item->quality;
     }
 
-    public function updateQuality(int $quality): void
+    public function setQuality(int $quality): void
     {
         $this->item->quality = $quality;
     }
@@ -31,6 +31,11 @@ class ItemInfo
     public function getRemainingDaysForSelling(): int
     {
         return $this->item->sellIn;
+    }
+
+    public function setRemainingDaysForSelling(int $remainingDays): void
+    {
+        $this->item->sellIn = $remainingDays;
     }
 
     public function getName(): string

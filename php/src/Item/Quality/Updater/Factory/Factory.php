@@ -7,6 +7,7 @@ namespace GildedRose\Item\Quality\Updater\Factory;
 use GildedRose\Item\ItemInfo;
 use GildedRose\Item\Quality\Updater\AgedBrieUpdater;
 use GildedRose\Item\Quality\Updater\BackstagePassesUpdater;
+use GildedRose\Item\Quality\Updater\ConjuredUpdater;
 use GildedRose\Item\Quality\Updater\GenericUpdater;
 use GildedRose\Item\Quality\Updater\SulfurasUpdater;
 use GildedRose\Item\Quality\Updater\UpdaterInterface;
@@ -26,6 +27,10 @@ class Factory implements FactoryInterface
 
             case 'Sulfuras, Hand of Ragnaros':
                 $updater = new SulfurasUpdater();
+                break;
+
+            case 'Conjured Mana Cake':
+                $updater = new ConjuredUpdater();
                 break;
 
             default:

@@ -5,53 +5,56 @@ declare(strict_types=1);
 namespace GildedRose\Item\UpdateQuality\Updater;
 
 use GildedRose\Item;
+use GildedRose\Item\ItemInfo;
 
 class Updater implements UpdaterInterface
 {
     public function updateItemQuality(Item $item): void
     {
-        if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-            if ($item->quality > 0) {
-                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                    $item->quality = $item->quality - 1;
+        $info = new ItemInfo($item);
+
+        if ($info->getName() != 'Aged Brie' and $info->getName() != 'Backstage passes to a TAFKAL80ETC concert') {
+            if ($info->getQuality() > 0) {
+                if ($info->getName() != 'Sulfuras, Hand of Ragnaros') {
+                    $info->updateQuality($info->getQuality() - 1);
                 }
             }
         } else {
-            if ($item->quality < 50) {
-                $item->quality = $item->quality + 1;
-                if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
+            if ($info->getQuality() < 50) {
+                $info->updateQuality($info->getQuality() + 1);
+                if ($info->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
                     if ($item->sellIn < 11) {
-                        if ($item->quality < 50) {
-                            $item->quality = $item->quality + 1;
+                        if ($info->getQuality() < 50) {
+                            $info->updateQuality($info->getQuality() + 1);
                         }
                     }
                     if ($item->sellIn < 6) {
-                        if ($item->quality < 50) {
-                            $item->quality = $item->quality + 1;
+                        if ($info->getQuality() < 50) {
+                            $info->updateQuality($info->getQuality() + 1);
                         }
                     }
                 }
             }
         }
 
-        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+        if ($info->getName() != 'Sulfuras, Hand of Ragnaros') {
             $item->sellIn = $item->sellIn - 1;
         }
 
         if ($item->sellIn < 0) {
-            if ($item->name != 'Aged Brie') {
-                if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                    if ($item->quality > 0) {
-                        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                            $item->quality = $item->quality - 1;
+            if ($info->getName() != 'Aged Brie') {
+                if ($info->getName() != 'Backstage passes to a TAFKAL80ETC concert') {
+                    if ($info->getQuality() > 0) {
+                        if ($info->getName() != 'Sulfuras, Hand of Ragnaros') {
+                            $info->updateQuality($info->getQuality() - 1);
                         }
                     }
                 } else {
-                    $item->quality = $item->quality - $item->quality;
+                    $info->updateQuality($info->getQuality() - $info->getQuality());
                 }
             } else {
-                if ($item->quality < 50) {
-                    $item->quality = $item->quality + 1;
+                if ($info->getQuality() < 50) {
+                    $info->updateQuality($info->getQuality() + 1);
                 }
             }
         }

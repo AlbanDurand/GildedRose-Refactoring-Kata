@@ -6,10 +6,10 @@ namespace Tests\Item\Specification;
 
 use GildedRose\Item;
 use GildedRose\Item\ItemInfo;
-use GildedRose\Item\Specification\UnsellableSpecification;
+use GildedRose\Item\Specification\ExpiredSpecification;
 use PHPUnit\Framework\TestCase;
 
-class UnsellableSpecificationTest extends TestCase
+class ExpiredSpecificationTest extends TestCase
 {
     public function testIsNotSatisfiedByItemWithPositiveRemainingDays(): void
     {
@@ -21,7 +21,7 @@ class UnsellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new UnsellableSpecification();
+        $specification = new ExpiredSpecification();
 
         self::assertFalse($specification->isSatisfiedBy($info));
     }
@@ -36,7 +36,7 @@ class UnsellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new UnsellableSpecification();
+        $specification = new ExpiredSpecification();
 
         self::assertTrue($specification->isSatisfiedBy($info));
     }
@@ -51,7 +51,7 @@ class UnsellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new UnsellableSpecification();
+        $specification = new ExpiredSpecification();
 
         self::assertTrue($specification->isSatisfiedBy($info));
     }

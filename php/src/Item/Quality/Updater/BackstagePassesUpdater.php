@@ -12,7 +12,7 @@ use GildedRose\Item\Quality\Modifier\Provider\MutableProvider;
 use GildedRose\Item\Quality\Modifier\Provider\ObsoleteProvider;
 use GildedRose\Item\Quality\Modifier\Provider\PrioritasableProvider;
 use GildedRose\Item\Specification\MoreThanGivenDaysForSellingSpecification;
-use GildedRose\Item\Specification\SellableSpecification;
+use GildedRose\Item\Specification\NonExpiredSpecification;
 
 class BackstagePassesUpdater extends ProgrammaticUpdater
 {
@@ -26,7 +26,7 @@ class BackstagePassesUpdater extends ProgrammaticUpdater
                     new MoreThanGivenDaysForSellingSpecification(5),
                     new FixedProvider(2),
                     new PrioritasableProvider(
-                        new SellableSpecification(),
+                        new NonExpiredSpecification(),
                         new FixedProvider(3),
                         new ObsoleteProvider()
                     )

@@ -9,8 +9,8 @@ use GildedRose\Item\ItemInfo;
 use GildedRose\Item\Quality\Modifier\Provider\ConditionallyMutableProvider;
 use GildedRose\Item\Quality\Modifier\Provider\FixedProvider;
 use GildedRose\Item\Quality\Modifier\Mutator\MultiplicableMutator;
-use GildedRose\Item\Specification\SellableSpecification;
-use GildedRose\Item\Specification\UnsellableSpecification;
+use GildedRose\Item\Specification\NonExpiredSpecification;
+use GildedRose\Item\Specification\ExpiredSpecification;
 use PHPUnit\Framework\TestCase;
 
 class ConditionallyMutableCalculcatorTest extends TestCase
@@ -26,7 +26,7 @@ class ConditionallyMutableCalculcatorTest extends TestCase
         );
 
         $provider = new ConditionallyMutableProvider(
-            new SellableSpecification(),
+            new NonExpiredSpecification(),
             new MultiplicableMutator(2),
             new FixedProvider(1)
         );
@@ -45,7 +45,7 @@ class ConditionallyMutableCalculcatorTest extends TestCase
         );
 
         $provider = new ConditionallyMutableProvider(
-            new UnsellableSpecification(),
+            new ExpiredSpecification(),
             new MultiplicableMutator(-2),
             new FixedProvider(1)
         );

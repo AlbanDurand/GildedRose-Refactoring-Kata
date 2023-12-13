@@ -8,8 +8,8 @@ use GildedRose\Item;
 use GildedRose\Item\ItemInfo;
 use GildedRose\Item\Quality\Modifier\Provider\FixedProvider;
 use GildedRose\Item\Quality\Modifier\Provider\PrioritasableProvider;
-use GildedRose\Item\Specification\SellableSpecification;
-use GildedRose\Item\Specification\UnsellableSpecification;
+use GildedRose\Item\Specification\NonExpiredSpecification;
+use GildedRose\Item\Specification\ExpiredSpecification;
 use PHPUnit\Framework\TestCase;
 
 class PrioritasableProviderTest extends TestCase
@@ -17,7 +17,7 @@ class PrioritasableProviderTest extends TestCase
     public function testCurrentProviderIsExecutedWhenSpecificationIsSatisfied(): void
     {
         $provider = new PrioritasableProvider(
-            new SellableSpecification(),
+            new NonExpiredSpecification(),
             new FixedProvider(1),
             new FixedProvider(2)
         );
@@ -36,7 +36,7 @@ class PrioritasableProviderTest extends TestCase
     public function testNextProviderIsExecutedWhenSpecificationIsNotSatisfied(): void
     {
         $provider = new PrioritasableProvider(
-            new UnsellableSpecification(),
+            new ExpiredSpecification(),
             new FixedProvider(1),
             new FixedProvider(2)
         );

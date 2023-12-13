@@ -6,10 +6,10 @@ namespace Tests\Item\Specification;
 
 use GildedRose\Item;
 use GildedRose\Item\ItemInfo;
-use GildedRose\Item\Specification\SellableSpecification;
+use GildedRose\Item\Specification\NonExpiredSpecification;
 use PHPUnit\Framework\TestCase;
 
-class SellableSpecificationTest extends TestCase
+class NonExpiredSpecificationTest extends TestCase
 {
     public function testIsNotSatisfiedByItemWithNegativeRemainingDays(): void
     {
@@ -21,7 +21,7 @@ class SellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new SellableSpecification();
+        $specification = new NonExpiredSpecification();
 
         self::assertFalse($specification->isSatisfiedBy($info));
     }
@@ -36,7 +36,7 @@ class SellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new SellableSpecification();
+        $specification = new NonExpiredSpecification();
 
         self::assertFalse($specification->isSatisfiedBy($info));
     }
@@ -51,7 +51,7 @@ class SellableSpecificationTest extends TestCase
             )
         );
 
-        $specification = new SellableSpecification();
+        $specification = new NonExpiredSpecification();
 
         self::assertTrue($specification->isSatisfiedBy($info));
     }

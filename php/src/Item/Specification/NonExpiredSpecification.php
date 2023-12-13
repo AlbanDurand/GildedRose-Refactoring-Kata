@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GildedRose\Item\Specification;
 
-class SellableSpecification extends MoreThanGivenDaysForSellingSpecification
+class NonExpiredSpecification extends MoreThanGivenDaysForSellingSpecification
 {
     public function __construct()
     {

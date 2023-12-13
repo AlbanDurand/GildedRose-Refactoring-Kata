@@ -6,10 +6,10 @@ namespace GildedRose\Item\Specification;
 
 use GildedRose\Item\ItemInfo;
 
-class UnsellableSpecification implements SpecificationInterface
+class ExpiredSpecification implements SpecificationInterface
 {
     public function isSatisfiedBy(ItemInfo $info): bool
     {
-        return (new SellableSpecification())->isSatisfiedBy($info) === false;
+        return (new NonExpiredSpecification())->isSatisfiedBy($info) === false;
     }
 }

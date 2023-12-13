@@ -10,11 +10,16 @@ use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
-    public function testFoo(): void
+    public function testItemNameRemainsUnchangedWhenUpdatingQuality(): void
     {
+        // Arrange
         $items = [new Item('foo', 0, 0)];
         $gildedRose = new GildedRose($items);
+
+        // Act
         $gildedRose->updateQuality();
-        $this->assertSame('fixme', $items[0]->name);
+
+        // Assert
+        $this->assertSame('foo', $items[0]->name);
     }
 }

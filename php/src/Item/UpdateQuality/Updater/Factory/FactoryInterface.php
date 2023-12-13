@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace GildedRose\Item\UpdateQuality\Updater\Factory;
+
+use GildedRose\Item;
+use GildedRose\Item\UpdateQuality\Updater\UpdaterInterface;
+
+interface FactoryInterface
+{
+    public function createUpdater(Item $item): UpdaterInterface;
+}

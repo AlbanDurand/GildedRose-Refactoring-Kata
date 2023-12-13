@@ -7,6 +7,7 @@ namespace Tests;
 use GildedRose\GildedRose;
 use GildedRose\Item;
 use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
+use GildedRose\Item\Specification\SellableSpecification;
 use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
@@ -15,7 +16,11 @@ class GildedRoseTest extends TestCase
     {
         // Arrange
         $items = [new Item('foo', 0, 0)];
-        $gildedRose = new GildedRose(new UpdaterFactory(), $items);
+        $gildedRose = new GildedRose(
+            new UpdaterFactory(),
+            new SellableSpecification(),
+            $items
+        );
 
         // Act
         $gildedRose->updateQuality();

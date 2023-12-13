@@ -7,6 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use GildedRose\GildedRose;
 use GildedRose\Item;
 use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
+use GildedRose\Item\Specification\SellableSpecification;
 
 echo 'OMGHAI!' . PHP_EOL;
 
@@ -25,6 +26,7 @@ $items = [
 
 $app = new GildedRose(
     new UpdaterFactory(),
+    new SellableSpecification(),
     $items
 );
 

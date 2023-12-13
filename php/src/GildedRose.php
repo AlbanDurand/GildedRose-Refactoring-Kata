@@ -6,6 +6,7 @@ namespace GildedRose;
 
 use GildedRose\Item\ItemInfo;
 use GildedRose\Item\Quality\Updater\Factory\FactoryInterface as UpdaterFactoryInterface;
+use GildedRose\Item\Specification\SpecificationInterface as ItemSpecificationInterface;
 
 final class GildedRose
 {
@@ -14,6 +15,7 @@ final class GildedRose
      */
     public function __construct(
         private UpdaterFactoryInterface $updaterFactory,
+        private ItemSpecificationInterface $sellableSpecification,
         private array $items
     ) {
     }
@@ -25,6 +27,10 @@ final class GildedRose
 
             $updater = $this->updaterFactory->createUpdater($info);
             $updater->updateItemQuality($info);
+
+            if ($this->sellableSpecification->isSatisfiedBy($info)) {
+                $info->setDaysBeforeExpiration($info->getDaysBeforeExpiration() - 1);
+            }
         }
     }
 }

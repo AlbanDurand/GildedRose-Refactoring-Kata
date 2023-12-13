@@ -9,6 +9,7 @@ use GildedRose\Item;
 use PHPUnit\Framework\TestCase;
 use ApprovalTests\Approvals;
 use GildedRose\Item\Quality\Updater\Factory\Factory as UpdaterFactory;
+use GildedRose\Item\Specification\SellableSpecification;
 
 /**
  * This unit test uses [Approvals](https://github.com/approvals/ApprovalTests.php).
@@ -25,7 +26,11 @@ class ApprovalTest extends TestCase
 	public function testFoo(): void
     {
         $items = [new Item('foo', 0, 0)];
-        $app = new GildedRose(new UpdaterFactory(), $items);
+        $app = new GildedRose(
+            new UpdaterFactory(),
+            new SellableSpecification(),
+            $items
+        );
         $app->updateQuality();
 
 		Approvals::verifyList($items);

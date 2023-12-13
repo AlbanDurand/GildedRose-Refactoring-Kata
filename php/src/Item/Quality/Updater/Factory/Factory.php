@@ -8,32 +8,30 @@ use GildedRose\Item\ItemInfo;
 use GildedRose\Item\Quality\Updater\AgedBrieUpdater;
 use GildedRose\Item\Quality\Updater\BackstagePassesUpdater;
 use GildedRose\Item\Quality\Updater\GenericUpdater;
-use GildedRose\Item\Quality\Updater\Updater;
+use GildedRose\Item\Quality\Updater\SulfurasUpdater;
 use GildedRose\Item\Quality\Updater\UpdaterInterface;
 
 class Factory implements FactoryInterface
 {
     public function createUpdater(ItemInfo $info): UpdaterInterface
     {
-        if (false === in_array(
-            $info->getName(),
-            [
-                'Aged Brie',
-                'Backstage passes to a TAFKAL80ETC concert',
-                'Sulfuras, Hand of Ragnaros'
-            ]
-        )) {
-            return new GenericUpdater();
+        switch ($info->getName()) {
+            case 'Backstage passes to a TAFKAL80ETC concert':
+                $updater = new BackstagePassesUpdater();
+                break;
+
+            case 'Aged Brie':
+                $updater = new AgedBrieUpdater();
+                break;
+
+            case 'Sulfuras, Hand of Ragnaros':
+                $updater = new SulfurasUpdater();
+                break;
+
+            default:
+                $updater = new GenericUpdater();
         }
 
-        if ($info->getName() === 'Backstage passes to a TAFKAL80ETC concert') {
-            return new BackstagePassesUpdater();
-        }
-
-        if ($info->getName() === 'Aged Brie') {
-            return new AgedBrieUpdater();
-        }
-
-        return new Updater();
+        return $updater;
     }
 }

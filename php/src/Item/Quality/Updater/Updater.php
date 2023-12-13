@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GildedRose\Item\Quality\Updater;
 
 use GildedRose\Item\ItemInfo;
+use GildedRose\Item\Quality\Modifier\Provider\ObsoleteProvider;
 
 class Updater implements UpdaterInterface
 {
@@ -47,7 +48,12 @@ class Updater implements UpdaterInterface
                         }
                     }
                 } else {
-                    $info->setQuality($info->getQuality() - $info->getQuality());
+                    $info->setQuality(
+                        $info->getQuality()
+                        + (new ObsoleteProvider())->provideQualityModifierBasedOnItemInfo(
+                            $info
+                        )
+                    );
                 }
             } else {
                 if ($info->getQuality() < 50) {

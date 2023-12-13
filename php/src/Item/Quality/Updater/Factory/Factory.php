@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GildedRose\Item\Quality\Updater\Factory;
 
 use GildedRose\Item\ItemInfo;
+use GildedRose\Item\Quality\Updater\AgedBrieUpdater;
 use GildedRose\Item\Quality\Updater\BackstagePassesUpdater;
 use GildedRose\Item\Quality\Updater\GenericUpdater;
 use GildedRose\Item\Quality\Updater\Updater;
@@ -27,6 +28,10 @@ class Factory implements FactoryInterface
 
         if ($info->getName() === 'Backstage passes to a TAFKAL80ETC concert') {
             return new BackstagePassesUpdater();
+        }
+
+        if ($info->getName() === 'Aged Brie') {
+            return new AgedBrieUpdater();
         }
 
         return new Updater();
